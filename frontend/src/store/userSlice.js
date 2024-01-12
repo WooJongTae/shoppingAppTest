@@ -64,6 +64,7 @@ const userSlice = createSlice({
       })
       .addCase(authUser.rejected, (state, action) => {
         state.isLoading = false;
+        state.isAuth = false;
         state.userData = initialState.userData;
         state.error = action.payload;
         localStorage.removeItem("accessToken");

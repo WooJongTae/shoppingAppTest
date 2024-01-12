@@ -12,7 +12,7 @@ router.get("/auth", auth, async (req, res, next) => {
     name: req.user.name,
     role: req.user.role,
     image: req.user.image,
-    cart: [],
+    cart: req.user.cart,
     history: req.user.history,
   });
 });
@@ -48,8 +48,8 @@ router.post("/login", async (req, res, next) => {
     });
 
     return res.json({ user, accessToken });
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 });
 
